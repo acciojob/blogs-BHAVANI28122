@@ -17,6 +17,7 @@ public class ImageController {
                                                  @RequestParam String description,
                                                  @RequestParam String dimensions) {
         Image image = null;
+
         return new ResponseEntity<>(image, HttpStatus.CREATED);
     }
 
