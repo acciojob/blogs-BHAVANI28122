@@ -19,7 +19,7 @@ public class Blog {
     private String title;
     private String content;
 
-    private Date publishDate;
+    private Date pubDate;
 
    @ManyToOne
    @JoinColumn
@@ -29,10 +29,10 @@ public class Blog {
     private List<Image> imageList;
 
 
-    public Blog(String title, String content, Date publishDate) {
+    public Blog(String title, String content, Date pubDate) {
         this.title = title;
         this.content = content;
-        this.publishDate = publishDate;
+        this.pubDate = pubDate;
     }
 
     public Blog(){
@@ -80,15 +80,11 @@ public class Blog {
         this.content = content;
     }
 
-    public Date getPublishDate() {
-        return publishDate;
+    public Date getPubDate() {
+        return pubDate;
     }
 
-    public void setPublishDate(Date publishDate) {
-        this.publishDate = publishDate;
+    public void setPubDate(Date pubDate) {
+        this.pubDate = pubDate;
     }
-
-
-
-
 }
