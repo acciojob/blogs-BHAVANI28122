@@ -23,10 +23,21 @@ public class Blog {
 
    @ManyToOne
    @JoinColumn
-    private User user;
+   private User user;
 
     @OneToMany(mappedBy = "blog",cascade = CascadeType.ALL)
     private List<Image> imageList;
+
+
+    public Blog(String title, String content, Date publishDate) {
+        this.title = title;
+        this.content = content;
+        this.publishDate = publishDate;
+    }
+
+    public Blog(){
+
+    }
 
     public int getId() {
         return id;
@@ -77,15 +88,6 @@ public class Blog {
         this.publishDate = publishDate;
     }
 
-    public Blog(String title, String content) {
-        this.title = title;
-        this.content = content;
-        this.publishDate = new Date();
-    }
-
-    public Blog(){
-
-    }
 
 
 
