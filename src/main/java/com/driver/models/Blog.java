@@ -16,14 +16,6 @@ public class Blog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     private String title;
     private String content;
 
@@ -39,10 +31,14 @@ public class Blog {
     public int getId() {
         return id;
     }
-
-    public void setId(int id) {
-        this.id = id;
+    public User getUser() {
+        return user;
     }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
 
     public List<Image> getImageList() {
         return imageList;
