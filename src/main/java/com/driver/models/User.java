@@ -19,6 +19,11 @@ public class User{
     private String password;
     private String firstName;
     private String lastName;
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public User(String username, String password, String firstName, String lastName) {
         this.username = username;
         this.password = password;

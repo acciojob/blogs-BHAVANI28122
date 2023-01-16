@@ -25,14 +25,12 @@ public class BlogService {
     UserRepository userRepository1;
 
     public List<Blog> showBlogs(){
+
+        User user = new User();
         //find all blogs
-
-        List<Blog> blogList = new ArrayList<>();
-        for(Blog b : blogList){
-            b.getId();
-        }
-
-        return blogRepository1.saveAll(blogList);
+        List<Blog> blogList = user.getBlogList();
+        blogRepository1.saveAll(blogList);
+        return blogList;
 
     }
 
