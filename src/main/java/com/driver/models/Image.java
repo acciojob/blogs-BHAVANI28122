@@ -2,6 +2,9 @@ package com.driver.models;
 
 import javax.persistence.*;
 
+
+@Entity
+@Table(name="image")
 public class Image{
 
     @Id
@@ -11,6 +14,28 @@ public class Image{
     private String dimensions;
     private String description;
 
+
+    @ManyToOne
+    @JoinColumn
+    private Blog blog;
+
+    public Image(String dimensions, String description, Blog blog) {
+        this.dimensions = dimensions;
+        this.description = description;
+        this.blog = blog;
+    }
+    public Image(){
+
+
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getDimensions() {
         return dimensions;
     }
@@ -27,17 +52,11 @@ public class Image{
         this.description = description;
     }
 
-    @ManyToOne
-    @JoinColumn
-    private int blog;
-
-    public Image(String dimensions, String description, Blog blog) {
-        this.dimensions = dimensions;
-        this.description = description;
-        this.blog = blog.getId();
+    public Blog getBlog() {
+        return blog;
     }
-    public Image(){
 
-
+    public void setBlog(Blog blog) {
+        this.blog = blog;
     }
 }

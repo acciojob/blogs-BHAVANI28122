@@ -3,47 +3,54 @@ package com.driver.models;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
+
+@Entity
+@Table(name="blog")
 public class Blog {
 
-    public int getId() {
-        return id;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private int userId;
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     private String title;
     private String content;
 
-    public CreationTimestamp getCreatedOn() {
-        return createdOn;
-    }
-
-    public void setCreatedOn(CreationTimestamp createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    private CreationTimestamp createdOn;
-
-    public Blog( String title, String content) {
-        this.title = title;
-        this.content = content;
-    }
-   public Blog (){
-
-   }
+    private Date publishDate;
 
    @ManyToOne
    @JoinColumn
-
     private User user;
 
     @OneToMany(mappedBy = "blog",cascade = CascadeType.ALL)
     private List<Image> imageList;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public List<Image> getImageList() {
+        return imageList;
+    }
+
+    public void setImageList(List<Image> imageList) {
+        this.imageList = imageList;
+    }
 
     public String getTitle() {
         return title;
@@ -60,4 +67,25 @@ public class Blog {
     public void setContent(String content) {
         this.content = content;
     }
+
+    public Date getPublishDate() {
+        return publishDate;
+    }
+
+    public void setPublishDate(Date publishDate) {
+        this.publishDate = publishDate;
+    }
+
+    public Blog(String title, String content) {
+        this.title = title;
+        this.content = content;
+        this.publishDate = new Date();
+    }
+
+    public Blog(){
+
+    }
+
+
+
 }

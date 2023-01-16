@@ -7,55 +7,76 @@ import javax.persistence.*;
 import java.util.List;
 
 
+@Entity
+@Table(name="user")
 public class User{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  int id;
 
-    private String name;
-    private String email;
-
-    private String Password;
-
+    private String username;
+    private String password;
+    private String firstName;
+    private String lastName;
+    public User(String username, String password, String firstName, String lastName) {
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
     public User(){
 
     }
-    public User(String name, String email, String password) {
-        this.name = name;
-        this.email = email;
-        Password = password;
+
+
+    @OneToMany(mappedBy ="user",cascade =CascadeType.ALL)
+    private List<Blog> blogList;
+
+    public List<Blog> getBlogList() {
+        return blogList;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return Password;
-    }
-
-    public void setPassword(String password) {
-        Password = password;
+    public void setBlogList(List<Blog> blogList) {
+        this.blogList = blogList;
     }
 
     public int getId() {
         return id;
     }
 
-    @OneToMany(mappedBy ="user",cascade =CascadeType.ALL)
-    private List<Blog> blogList;
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUserName(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+
 }

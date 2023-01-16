@@ -18,9 +18,6 @@ public class UserService {
 
     public void createUser(User user){
 
-      user.setName(user.getName());
-      user.setEmail(user.getEmail());
-      user.setPassword(user.getPassword());
       userRepository3.save(user);
     }
 
@@ -29,7 +26,6 @@ public class UserService {
     }
 
     public void updateUser(User user){
-
 
         userRepository3.save(user);
     }
