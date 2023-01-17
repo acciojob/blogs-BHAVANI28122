@@ -44,13 +44,15 @@ public class BlogService {
 
         User user = userRepository1.findById(userId).get();
 
+        if(user != null) {
 
-        //updating the blog details
+            //updating the blog details
 
-        blog.setUser(user);
-        blog.setTitle(title);
-        blog.setContent(content);
-        blog.setPubDate(new Date());
+            blog.setUser(user);
+            blog.setTitle(title);
+            blog.setContent(content);
+            blog.setPubDate(new Date());
+        }
         List<Blog> blogList = user.getBlogList();
         blogList.add(blog);
         user.setBlogList(blogList);
