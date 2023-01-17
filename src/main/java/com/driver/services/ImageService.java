@@ -22,6 +22,7 @@ public class ImageService {
         image.setBlog(blog);
         image.setDescription(description);
         image.setDimensions(dimensions);
+        imageRepository2.save(image);
         List<Image> imageList = blog.getImageList();
         imageList.add(image);
         blog.setImageList(imageList);

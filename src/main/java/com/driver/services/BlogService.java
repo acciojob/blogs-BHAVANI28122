@@ -26,11 +26,13 @@ public class BlogService {
 
     public List<Blog> showBlogs(){
 
-        User user = new User();
-        //find all blogs
-        List<Blog> blogList = user.getBlogList();
-        blogRepository1.saveAll(blogList);
-        return blogList;
+//        User user = new User();
+//        //find all blogs
+//        List<Blog> blogList = user.getBlogList();
+//        blogRepository1.saveAll(blogList);
+//        return blogList;
+
+        return blogRepository1.findAll();
 
     }
 
@@ -77,6 +79,7 @@ public class BlogService {
 
         List<Image> imageList =blog.getImageList();
         imageList.add(img);
+        blog.setImageList(imageList);
         blogRepository1.save(blog);
 
 
