@@ -23,10 +23,10 @@ public class ImageService {
         image.setDescription(description);
         image.setDimensions(dimensions);
         imageRepository2.save(image);
-        List<Image> imageList = blog.getImageList();
-        imageList.add(image);
-        blog.setImageList(imageList);
-        blogRepository.save(blog);
+//        List<Image> imageList = blog.getImageList();
+//        imageList.add(image);
+//        blog.setImageList(imageList);
+//        blogRepository.save(blog);
 
         return image;
 
